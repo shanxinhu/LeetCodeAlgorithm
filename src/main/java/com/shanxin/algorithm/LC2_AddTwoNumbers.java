@@ -1,5 +1,7 @@
 package com.shanxin.algorithm;
 
+import com.shanxin.algorithm.node.ListNode;
+
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -13,12 +15,40 @@ public class LC2_AddTwoNumbers {
      */
 
     public static void main(String[] args) {
+        ListNode node1 = new ListNode(2, new ListNode(4, new ListNode(3)));
+        ListNode node2 = new ListNode(5, new ListNode(6, new ListNode(4)));
+
+        System.out.println(node1);
+        System.out.println(node2);
+        System.out.println(addTwoNumbers(node1, node2));
 
     }
 
-    public static void LC2_AddTwoNumbers(int[] nums, int target) {
+    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
+        ListNode res = new ListNode();
+        ListNode cur = res;
+        int carry = 0;
+        while (l1 != null || l2 != null || carry != 0) {
+            int x = l1 != null ? l1.val : 0;
+            int y = l2 != null ? l2.val : 0;
+            int sum = carry + x + y;
+            ListNode node = null;
+            // 处理余数
+            if (sum >= 10) {
+                carry = 1;
+                node = new ListNode(sum % 10);
+            } else {
+                carry = 0;
+                node = new ListNode(sum);
 
+            }
+            cur.next = node;
+            cur = cur.next;
+            if (l1 != null) l1 = l1.next;
+            if (l2 != null) l2 = l2.next;
+        }
+        return res.next;
     }
 
 }
