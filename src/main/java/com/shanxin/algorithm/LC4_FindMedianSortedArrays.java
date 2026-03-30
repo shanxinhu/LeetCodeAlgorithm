@@ -1,9 +1,5 @@
 package com.shanxin.algorithm;
 
-
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class LC4_FindMedianSortedArrays {
 
     /*
