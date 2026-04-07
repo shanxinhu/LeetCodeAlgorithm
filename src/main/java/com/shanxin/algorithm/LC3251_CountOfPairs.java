@@ -2,7 +2,7 @@ package com.shanxin.algorithm;
 
 import java.util.Arrays;
 
-import static com.shanxin.algorithm.Constant.MOD;
+import static com.shanxin.algorithm.common.Constant.MOD;
 
 public class LC3251_CountOfPairs {
 

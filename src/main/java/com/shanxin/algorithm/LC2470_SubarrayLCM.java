@@ -1,5 +1,6 @@
 package com.shanxin.algorithm;
 
+import com.shanxin.algorithm.common.Utils;
 import com.shanxin.algorithm.node.Node;
 
 public class LC2470_SubarrayLCM {
@@ -58,7 +59,7 @@ public class LC2470_SubarrayLCM {
             // 从起始位置扩展到结束位置
             for (int j = i; j < nums.length; j++) {
                 // 更新当前子数组 [i,j] 的最小公倍数
-                lcm = lcm(lcm, nums[j]);
+                lcm = Utils.lcm(lcm, nums[j]);
                 // 如果当前 LCM 等于 k
                 if (lcm == k) {
                     // 计数器加 1
@@ -70,17 +71,7 @@ public class LC2470_SubarrayLCM {
         return res;
     }
     
-    private int lcm(int a, int b) {
-        // 计算两个数的最小公倍数
-        
-        // 利用公式：LCM(a,b) = a*b / GCD(a,b)
-        return a * b / gcd(a, b);
-    }
+
     
-    private int gcd(int a, int b) {
-        // 计算两个数的最大公约数（欧几里得算法）
-        
-        // 递归计算：GCD(a,b) = GCD(b, a%b)，直到 b=0
-        return b == 0 ? a : gcd(b, a % b);
-    }
+
 }

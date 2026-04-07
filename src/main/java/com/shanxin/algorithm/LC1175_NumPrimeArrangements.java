@@ -1,10 +1,7 @@
 package com.shanxin.algorithm;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static com.shanxin.algorithm.Constant.MOD;
+import static com.shanxin.algorithm.common.Constant.MOD;
 
 public class LC1175_NumPrimeArrangements {
 

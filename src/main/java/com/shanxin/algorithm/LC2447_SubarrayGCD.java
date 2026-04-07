@@ -1,5 +1,7 @@
 package com.shanxin.algorithm;
 
+import com.shanxin.algorithm.common.Utils;
+
 public class LC2447_SubarrayGCD {
 
     /*
@@ -60,7 +62,7 @@ public class LC2447_SubarrayGCD {
                 // 遍历子数组 [i,j] 的所有元素
                 for (int m = i; m <= j; m++){
                     // 更新当前子数组的最大公因数
-                    gcd = gcd(gcd, nums[m]);
+                    gcd = Utils.gcd(gcd, nums[m]);
                 }
                 // 如果当前 GCD 等于 k
                 if (gcd == k){
@@ -72,11 +74,5 @@ public class LC2447_SubarrayGCD {
         // 返回满足条件的子数组数目
         return res;
     }
-        
-    private int gcd(int a, int b) {
-        // 计算两个数的最大公约数（欧几里得算法）
-        
-        // 递归计算：GCD(a,b) = GCD(b, a%b)，直到 b=0
-        return b == 0 ? a : gcd(b, a % b);
-    }
+
 }

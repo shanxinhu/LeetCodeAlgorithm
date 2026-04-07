@@ -1,4 +1,4 @@
-package com.shanxin.algorithm;
+package com.shanxin.algorithm.common;
 
 /**
  * @author will

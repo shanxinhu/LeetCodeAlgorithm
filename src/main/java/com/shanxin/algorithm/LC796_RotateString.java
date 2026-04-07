@@ -89,7 +89,8 @@ public class LC796_RotateString {
             if (pattern.charAt(i) == pattern.charAt(len)) { // 比较 pattern[i] 和 pattern[len]
                 // 说明可以扩展当前的公共前后缀
                 len++; // 最长公共前后缀长度加 1
-                lps[i++] = ++len; // 将当前位置的 LPS 值设为 len，然后 i 和 len 都自增
+                lps[i] = len; // 将当前位置的 LPS 值设为 len
+                i++; // 移动到下一个位置
             } else {
                 // 如果不相等
                 if (len > 0) { // 如果 len 大于 0
