@@ -50,13 +50,19 @@ public class LC365_CanMeasureWater {
      */
 
 
-    public boolean canMeasureWater(int x, int y, int target) { // 判断是否能用两个水壶测量出目标水量
+    public boolean canMeasureWater(int x, int y, int target) {
+        // 判断是否能用两个水壶测量出目标水量
         // 时间复杂度：O(log(min(x, y)))，计算 GCD 的复杂度
         // 空间复杂度：O(1)，只使用了常数个额外变量
-        return target <= x + y && target % gcd(x, y) == 0; // 目标不超过总容量且能被 GCD 整除即可测量
+        
+        // 目标不超过总容量且能被 GCD 整除即可测量
+        return target <= x + y && target % gcd(x, y) == 0;
     }
 
-    private int gcd(int a, int b) { // 计算两个数的最大公约数（欧几里得算法）
-        return b == 0 ? a : gcd(b, a % b); // 递归计算：GCD(a,b) = GCD(b, a%b)，直到 b=0
+    private int gcd(int a, int b) {
+        // 计算两个数的最大公约数（欧几里得算法）
+        
+        // 递归计算：GCD(a,b) = GCD(b, a%b)，直到 b=0
+        return b == 0 ? a : gcd(b, a % b);
     }
 }

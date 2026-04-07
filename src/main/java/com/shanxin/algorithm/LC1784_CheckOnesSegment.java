@@ -38,10 +38,13 @@ public class LC1784_CheckOnesSegment {
      */
 
 
-    public boolean checkOnesSegment(String s) { // 检查二进制字符串是否最多有一个连续的 '1' 字段
+    public boolean checkOnesSegment(String s) {
+        // 检查二进制字符串是否最多有一个连续的 '1' 字段
         // 时间复杂度：O(n)，其中 n 是字符串长度，indexOf 需要遍历字符串
         // 空间复杂度：O(1)，只使用了常数个额外变量
-        return s.indexOf("01") == -1; // 如果不存在 "01" 子串，说明所有 '1' 都在前面，只有一个连续字段
+        
+        // 如果不存在 "01" 子串，说明所有 '1' 都在前面，只有一个连续字段
+        return s.indexOf("01") == -1;
     }
 
 }

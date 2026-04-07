@@ -42,29 +42,45 @@ public class LC3033_ModifiedMatrix {
      */
 
 
-    public int[][] modifiedMatrix(int[][] matrix) { // 将矩阵中的 -1 替换为所在列的最大元素
+    public int[][] modifiedMatrix(int[][] matrix) {
+        // 将矩阵中的 -1 替换为所在列的最大元素
         // 时间复杂度：O(m * n)，其中 m 是行数，n 是列数，需要遍历矩阵两次
         // 空间复杂度：O(m * n)，存储结果矩阵
-        int m = matrix.length; // 获取矩阵的行数
-        int n = matrix[0].length; // 获取矩阵的列数
-        int[][] ans = new int[m][n]; // 创建结果矩阵
-        for (int i = 0; i < m; i++) { // 复制原矩阵到结果矩阵
-            for (int j = 0; j < n; j++) { // 遍历每一列
-                ans[i][j] = matrix[i][j]; // 复制元素
+        
+        // 获取矩阵的行数
+        int m = matrix.length;
+        // 获取矩阵的列数
+        int n = matrix[0].length;
+        // 创建结果矩阵
+        int[][] ans = new int[m][n];
+        // 复制原矩阵到结果矩阵
+        for (int i = 0; i < m; i++) {
+            // 遍历每一列
+            for (int j = 0; j < n; j++) {
+                // 复制元素
+                ans[i][j] = matrix[i][j];
             }
         }
-        for (int j = 0; j < n; j++) { // 遍历每一列
-            int max = -1; // 初始化当前列的最大值为 -1
-            for (int i = 0; i < m; i++) { // 遍历当前列的所有行
-                max = Math.max(max, matrix[i][j]); // 更新当前列的最大值
+        // 遍历每一列
+        for (int j = 0; j < n; j++) {
+            // 初始化当前列的最大值为 -1
+            int max = -1;
+            // 遍历当前列的所有行
+            for (int i = 0; i < m; i++) {
+                // 更新当前列的最大值
+                max = Math.max(max, matrix[i][j]);
             }
-            for (int i = 0; i < m; i++) { // 再次遍历当前列的所有行
-                if (matrix[i][j] == -1) { // 如果当前元素是 -1
-                    ans[i][j] = max; // 替换为当前列的最大值
+            // 再次遍历当前列的所有行
+            for (int i = 0; i < m; i++) {
+                // 如果当前元素是 -1
+                if (matrix[i][j] == -1) {
+                    // 替换为当前列的最大值
+                    ans[i][j] = max;
                 }
             }
         }
-        return ans; // 返回修改后的矩阵
+        // 返回修改后的矩阵
+        return ans;
     }
 
 

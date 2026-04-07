@@ -44,27 +44,43 @@ public class LC2470_SubarrayLCM {
      */
 
 
-    public int subarrayLCM(int[] nums, int k) { // 统计最小公倍数等于 k 的子数组数目
+    public int subarrayLCM(int[] nums, int k) {
+        // 统计最小公倍数等于 k 的子数组数目
         // 时间复杂度：O(n^2 * log(max(nums)))，其中 n 是数组长度，log(max(nums)) 是计算 GCD 的复杂度
         // 空间复杂度：O(1)，只使用了常数个额外变量
-        int res = 0; // 初始化结果计数器
-        for (int i = 0; i < nums.length; i++) { // 遍历每个起始位置
-            int lcm = nums[i]; // 初始化当前子数组的 LCM 为起始元素
-            for (int j = i; j < nums.length; j++) { // 从起始位置扩展到结束位置
-                lcm = lcm(lcm, nums[j]); // 更新当前子数组 [i,j] 的最小公倍数
-                if (lcm == k) { // 如果当前 LCM 等于 k
-                    res++; // 计数器加 1
+        
+        // 初始化结果计数器
+        int res = 0;
+        // 遍历每个起始位置
+        for (int i = 0; i < nums.length; i++) {
+            // 初始化当前子数组的 LCM 为起始元素
+            int lcm = nums[i];
+            // 从起始位置扩展到结束位置
+            for (int j = i; j < nums.length; j++) {
+                // 更新当前子数组 [i,j] 的最小公倍数
+                lcm = lcm(lcm, nums[j]);
+                // 如果当前 LCM 等于 k
+                if (lcm == k) {
+                    // 计数器加 1
+                    res++;
                 }
             }
         }
-        return res; // 返回满足条件的子数组数目
+        // 返回满足条件的子数组数目
+        return res;
     }
     
-    private int lcm(int a, int b) { // 计算两个数的最小公倍数
-        return a * b / gcd(a, b); // 利用公式：LCM(a,b) = a*b / GCD(a,b)
+    private int lcm(int a, int b) {
+        // 计算两个数的最小公倍数
+        
+        // 利用公式：LCM(a,b) = a*b / GCD(a,b)
+        return a * b / gcd(a, b);
     }
     
-    private int gcd(int a, int b) { // 计算两个数的最大公约数（欧几里得算法）
-        return b == 0 ? a : gcd(b, a % b); // 递归计算：GCD(a,b) = GCD(b, a%b)，直到 b=0
+    private int gcd(int a, int b) {
+        // 计算两个数的最大公约数（欧几里得算法）
+        
+        // 递归计算：GCD(a,b) = GCD(b, a%b)，直到 b=0
+        return b == 0 ? a : gcd(b, a % b);
     }
 }

@@ -53,31 +53,51 @@ public class LC88_merge {
      */
 
 
-    public void merge(int[] nums1, int m, int[] nums2, int n) { // 合并两个有序数组到 nums1
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        // 合并两个有序数组到 nums1
         // 时间复杂度：O(m + n)，需要遍历两个数组的所有元素
         // 空间复杂度：O(m + n)，使用临时数组存储合并结果
-        int p1 = 0; // 初始化 nums1 的指针
-        int p2 = 0; // 初始化 nums2 的指针
-        int[] temp = new int[m + n]; // 创建临时数组存储合并结果
-        while (p1 < m && p2 < n) { // 当两个指针都未越界时
-            if (nums1[p1] <= nums2[p2]) { // 如果 nums1 当前元素较小或相等
-                temp[p1 + p2] = nums1[p1]; // 将 nums1 当前元素放入临时数组
-                p1++; // 移动 nums1 指针
-            } else { // 如果 nums2 当前元素较小
-                temp[p1 + p2] = nums2[p2]; // 将 nums2 当前元素放入临时数组
-                p2++; // 移动 nums2 指针
+        
+        // 初始化 nums1 的指针
+        int p1 = 0;
+        // 初始化 nums2 的指针
+        int p2 = 0;
+        // 创建临时数组存储合并结果
+        int[] temp = new int[m + n];
+        // 当两个指针都未越界时
+        while (p1 < m && p2 < n) {
+            // 如果 nums1 当前元素较小或相等
+            if (nums1[p1] <= nums2[p2]) {
+                // 将 nums1 当前元素放入临时数组
+                temp[p1 + p2] = nums1[p1];
+                // 移动 nums1 指针
+                p1++;
+            } else {
+                // 如果 nums2 当前元素较小
+                // 将 nums2 当前元素放入临时数组
+                temp[p1 + p2] = nums2[p2];
+                // 移动 nums2 指针
+                p2++;
             }
         }
-        while (p1 < m) { // 处理 nums1 中剩余的元素
-            temp[p1 + p2] = nums1[p1]; // 将剩余元素放入临时数组
-            p1++; // 移动指针
+        // 处理 nums1 中剩余的元素
+        while (p1 < m) {
+            // 将剩余元素放入临时数组
+            temp[p1 + p2] = nums1[p1];
+            // 移动指针
+            p1++;
         }
-        while (p2 < n) { // 处理 nums2 中剩余的元素
-            temp[p1 + p2] = nums2[p2]; // 将剩余元素放入临时数组
-            p2++; // 移动指针
+        // 处理 nums2 中剩余的元素
+        while (p2 < n) {
+            // 将剩余元素放入临时数组
+            temp[p1 + p2] = nums2[p2];
+            // 移动指针
+            p2++;
         }
-        for (int i = 0; i < m + n; i++) { // 将临时数组复制回 nums1
-            nums1[i] = temp[i]; // 复制每个元素
+        // 将临时数组复制回 nums1
+        for (int i = 0; i < m + n; i++) {
+            // 复制每个元素
+            nums1[i] = temp[i];
         }
     }
 
