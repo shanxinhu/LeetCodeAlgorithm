@@ -60,29 +60,30 @@ public class LC2416_SumPrefixScores {
      */
 
 
-    public int[] sumPrefixScores(String[] words) {
-
-        Node root = new Node();
-        for (String word : words) {
-            Node cur = root;
-            for (char c : word.toCharArray()) {
-                if (cur.son[c - 'a'] == null) {
-                    cur.son[c - 'a'] = new Node(c);
+    public int[] sumPrefixScores(String[] words) { // 计算每个字符串的所有前缀分数总和
+        // 时间复杂度：O(n * m)，其中 n 是单词数量，m 是单词的平均长度
+        // 空间复杂度：O(n * m)，Trie 树存储所有字符节点
+        Node root = new Node(); // 创建 Trie 树的根节点
+        for (String word : words) { // 遍历每个单词，构建 Trie 树
+            Node cur = root; // 从根节点开始遍历
+            for (char c : word.toCharArray()) { // 遍历当前单词的每个字符
+                if (cur.son[c - 'a'] == null) { // 如果当前字符对应的子节点不存在
+                    cur.son[c - 'a'] = new Node(c); // 创建新的子节点
                 }
-                cur = cur.son[c - 'a'];
-                cur.score++;
+                cur = cur.son[c - 'a']; // 移动到子节点
+                cur.score++; // 增加该节点的分数（表示有多少个单词经过此节点）
             }
         }
 
-        int[] res = new int[words.length];
-        for (int i = 0; i < words.length; i++) {
-            Node cur = root;
-            for (char c : words[i].toCharArray()) {
-                cur = cur.son[c - 'a'];
-                res[i] += cur.score;
+        int[] res = new int[words.length]; // 创建结果数组，存储每个单词的前缀分数总和
+        for (int i = 0; i < words.length; i++) { // 遍历每个单词，计算其前缀分数总和
+            Node cur = root; // 从根节点开始遍历
+            for (char c : words[i].toCharArray()) { // 遍历当前单词的每个字符
+                cur = cur.son[c - 'a']; // 移动到对应的子节点
+                res[i] += cur.score; // 累加当前节点的分数到结果中
             }
         }
-        return res;
+        return res; // 返回结果数组
     }
 
 }
