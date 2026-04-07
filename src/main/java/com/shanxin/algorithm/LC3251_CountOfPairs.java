@@ -2,6 +2,8 @@ package com.shanxin.algorithm;
 
 import java.util.Arrays;
 
+import static com.shanxin.algorithm.Constant.MOD;
+
 public class LC3251_CountOfPairs {
 
     /*
@@ -59,9 +61,8 @@ public class LC3251_CountOfPairs {
      * @return 单调数组对的数目，对 10^9 + 7 取余
      */
     public int countOfPairs(int[] nums) {
-        // 定义模数，用于防止结果溢出
-        final int MOD = 1_000_000_007;
-            
+
+
         // 获取数组 nums 的长度
         int n = nums.length;
             
