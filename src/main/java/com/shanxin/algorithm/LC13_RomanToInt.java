@@ -71,19 +71,32 @@ public class LC13_RomanToInt {
 
     public int romanToInt(String s) {
         int result = 0;
-        // 罗马字符与数值的映射关系
-        Map<String, Integer> map = Map.of("I", 1, "V", 5, "X", 10, "L", 50, "C", 100, "D", 500, "M", 1000);
-        // 逐字符遍历罗马数字
-        for (int i = 0; i < s.length(); i++) {
-            // 若当前字符的值小于下一个字符的值（如 IV、IX、XL 等），则需要减去当前值
-            if (i < s.length() - 1 && map.get(s.substring(i, i + 1)) < map.get(s.substring(i + 1, i + 2))) {
-                result -= map.get(s.substring(i, i + 1));
+        int n = s.length();
+        // 遍历每个罗马字符，与前一个字符的值比较来决定加减
+        for (int i = 0; i < n; i++) {
+            int value = charToInt(s.charAt(i));
+            // 若当前值大于前一个值（如 IV 中 V > I），说明前一个字符应被减去而非加上，需修正 result
+            if (i > 0 && value > charToInt(s.charAt(i - 1))) {
+                result += value - 2 * charToInt(s.charAt(i - 1));
             } else {
-                // 否则直接累加当前字符的值
-                result += map.get(s.substring(i, i + 1));
+                result += value;
             }
         }
         return result;
+    }
+
+    // 将单个罗马字符映射为对应的整数值
+    private int charToInt(char c) {
+        return switch (c) {
+            case 'I' -> 1;
+            case 'V' -> 5;
+            case 'X' -> 10;
+            case 'L' -> 50;
+            case 'C' -> 100;
+            case 'D' -> 500;
+            case 'M' -> 1000;
+            default -> 0;
+        };
     }
 
 }
