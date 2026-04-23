@@ -30,13 +30,6 @@ public class LC214_ShortestPalindrome {
         s 仅由小写英文字母组成
      */
 
-    public static void main(String[] args) {
-        LC214_ShortestPalindrome lc214ShortestPalindrome = new LC214_ShortestPalindrome();
-        System.out.println(lc214ShortestPalindrome.shortestPalindrome("abcabac"));
-        System.out.println(lc214ShortestPalindrome.shortestPalindrome("abcabc"));
-    }
-
-
 
     /**
      * 找到并返回可以通过在字符串前面添加字符转换的最短回文串
