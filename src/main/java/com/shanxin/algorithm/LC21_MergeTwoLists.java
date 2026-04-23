@@ -2,7 +2,7 @@ package com.shanxin.algorithm;
 
 import com.shanxin.algorithm.node.ListNode;
 
-public class LC21_Solution {
+public class LC21_MergeTwoLists {
 
     /*
 

@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class LC21_SolutionTest {
+public class LC21_MergeTwoListsTest {
 
-    private final LC21_Solution solution = new LC21_Solution();
+    private final LC21_MergeTwoLists solution = new LC21_MergeTwoLists();
 
     /**
      * 辅助方法：用 int 数组快速构建链表
