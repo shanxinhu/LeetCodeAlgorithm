@@ -4,7 +4,7 @@ public class LC70_ClimbStairs {
 
     /*
   https://leetcode.cn/problems/climbing-stairs/
-       70. 爬楼梯
+//       70. 爬楼梯
         简单
         相关标签
         premium lock icon
