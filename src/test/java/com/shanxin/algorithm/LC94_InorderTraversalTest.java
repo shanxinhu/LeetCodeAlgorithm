@@ -7,9 +7,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class LC88_InorderTraversalTest {
+public class LC94_InorderTraversalTest {
 
-    private final LC88_InorderTraversal solution = new LC88_InorderTraversal();
+    private final LC94_InorderTraversal solution = new LC94_InorderTraversal();
 
     /** 辅助方法：创建 TreeNode 并用 setter 设置子节点 */
     private TreeNode node(int val) {

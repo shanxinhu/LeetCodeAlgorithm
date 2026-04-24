@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
-public class LC88_InorderTraversal {
+public class LC94_InorderTraversal {
 
     /*
   https://leetcode.cn/problems/binary-tree-inorder-traversal/
